@@ -1,5 +1,6 @@
 import { describe, test, expect } from "@jest/globals";
 import ArrayClass from "../DS_Array/Array";
+import reverseAString from "../DS_Array/ReverseAString";
 
 describe("Test Array Class", function () {
   const arrIntInstance = new ArrayClass<number>();
@@ -11,5 +12,16 @@ describe("Test Array Class", function () {
       data: { "0": 1, "1": 2, "2": 3 },
       length: 3,
     });
+  });
+});
+
+describe("Test ReverseAString Function", function () {
+  test(`Should reverse "hello to "olleh"`, function () {
+    const reversedWord = reverseAString("hello");
+    expect(reversedWord).toBe("olleh");
+  });
+  test(`Should reverse "mike to "ekim"`, function () {
+    const reversedWord = reverseAString("mike");
+    expect(reversedWord).toBe("ekim");
   });
 });

@@ -26,7 +26,7 @@ export default class ArrayClass<T> {
   public getItem(index: number): T {
     // Index must be positive & index cannot be
     // greater than the array size
-    if (index > 0 && index < this.length) {
+    if (index >= 0 && index < this.length) {
       return this.data[index];
     }
     throw new Error("Out of bound/range").message;
@@ -87,6 +87,7 @@ export default class ArrayClass<T> {
   }
 
   /**
+   * Shift items to left from where the index start from
    * Example: Arr = [1, 2, 3, 4]
    *         index: [0][1][2][3]
    * let say delete item 3 at index 2
@@ -95,7 +96,7 @@ export default class ArrayClass<T> {
     // i = 2 and length = 3 (4 - 1)
     for (let i = index; i < this.length - 1; i++) {
       //data[2] = data[3], now at index 2 the value is 4
-      this.data[i] = i < this.data[i + 1]; //(shifted)
+      this.data[i] = this.data[i + 1]; //(shifted)
     }
     //now length size is 3
     --this.length;
@@ -116,7 +117,7 @@ export default class ArrayClass<T> {
       this.data[index] = item;
       return this.length;
     }
-    throw new Error("Out of bound/range");
+    throw new Error("Out of bound/range").message;
   }
 
   private shiftItemsRightAtIndex(index: number): void {
@@ -129,16 +130,19 @@ export default class ArrayClass<T> {
   }
 }
 
-const arrInstance = new ArrayClass<number>();
-arrInstance.addItemEnd(1);
-arrInstance.addItemEnd(2);
-arrInstance.addItemEnd(3);
-arrInstance.addItemEnd(4);
-console.log(arrInstance.getArraySize());
-arrInstance.deleteItemAtIndex(2);
-arrInstance.insertItemAtIndex(2, 50);
-arrInstance.deleteItemAtIndex(3);
-console.log(arrInstance);
+// const arrInstance = new ArrayClass<number>();
+// arrInstance.addItemEnd(1);
+// arrInstance.addItemEnd(2);
+// arrInstance.addItemEnd(3);
+// arrInstance.addItemEnd(4);
+// arrInstance.getItem(2);
+// console.log(arrInstance);
+
+// console.log(arrInstance.getArraySize());
+// arrInstance.deleteItemAtIndex(2);
+// arrInstance.insertItemAtIndex(2, 50);
+// arrInstance.deleteItemAtIndex(3);
+// console.log(arrInstance);
 
 // const arrNumInstance = new ArrayClass<number>();
 // arrNumInstance.addItemEnd(6);
