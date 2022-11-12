@@ -112,7 +112,7 @@ export default class ArrayClass<T> {
    * @error Out of range
    */
   public insertItemAtIndex(index: number, item: T): number {
-    if (index >= 0 && index < this.length) {
+    if (index >= 0 && index <= this.length) {
       this.shiftItemsRightAtIndex(index);
       this.data[index] = item;
       return this.length;
@@ -129,32 +129,3 @@ export default class ArrayClass<T> {
     delete this.data[index];
   }
 }
-
-// const arrInstance = new ArrayClass<number>();
-// arrInstance.addItemEnd(1);
-// arrInstance.addItemEnd(2);
-// arrInstance.addItemEnd(3);
-// arrInstance.addItemEnd(4);
-// arrInstance.getItem(2);
-// console.log(arrInstance);
-
-// console.log(arrInstance.getArraySize());
-// arrInstance.deleteItemAtIndex(2);
-// arrInstance.insertItemAtIndex(2, 50);
-// arrInstance.deleteItemAtIndex(3);
-// console.log(arrInstance);
-
-// const arrNumInstance = new ArrayClass<number>();
-// arrNumInstance.addItemEnd(6);
-// arrNumInstance.addItemEnd(7);
-// console.log(arrNumInstance.getArraySize());
-// arrNumInstance.removeItemEnd();
-// arrNumInstance.removeItemEnd();
-// console.log(arrNumInstance.getArraySize());
-// arrNumInstance.removeItemEnd();
-// console.log(arrNumInstance);
-
-// const arrStringInstance = new ArrayClass<string>();
-// arrStringInstance.addItemEnd("Jake");
-// arrStringInstance.addItemEnd("Finn");
-// console.log(arrStringInstance);
